@@ -37,6 +37,8 @@ footer{color:var(--muted);text-align:center;margin-top:10px;font-size:13px}
 .deleteBtn{position:absolute;right:10px;top:10px;background:#ff6b9a;color:#fff;border:none;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer;}
 .love-text{max-height:500px;overflow-y:auto;padding:16px;background:linear-gradient(180deg,#fff0f6,#ffeaf3);border-radius:12px;line-height:1.6;font-size:16px;color:#222;box-shadow:0 6px 12px rgba(0,0,0,0.05);margin-top:12px;}
 .love-text p{margin-bottom:12px;}
+#notesArea{margin-top:12px}
+input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2;margin-bottom:10px;}
 @media (max-width:880px){.hero{grid-template-columns:1fr;}.photo{height:200px}}
 .particle{position:fixed;font-size:16px;pointer-events:none;animation:fall linear infinite;}
 @keyframes fall{0% { transform: translateY(-50px) rotate(0deg); opacity:1; } 100% { transform: translateY(110vh) rotate(360deg); opacity:0; }}
@@ -74,6 +76,40 @@ footer{color:var(--muted);text-align:center;margin-top:10px;font-size:13px}
     </div>
   </section>
 
+  <section class="card" id="galeria">
+    <h3>Galeria</h3>
+    <p class="lead">Algumas imagens fofas…</p>
+    <div class="gallery">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0107.jpg">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0114.jpg">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0124.jpg">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0257.jpg">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0308.jpg">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251031-WA0419.jpg">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251110-WA0882.jpg">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251121-WA0611.jpg">
+    </div>
+  </section>
+
+  <section class="card" id="cartas">
+    <h3>Cartas & Mensagens</h3>
+    <div class="letters">
+      <blockquote><strong>Meu amor:</strong> Você é meu lugar seguro.</blockquote>
+      <blockquote><strong>Hoje:</strong> Pensei em você mais do que devia…</blockquote>
+      <blockquote><strong>Promessa:</strong> Estarei com você em todas as versões da nossa vida.</blockquote>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Deixe uma mensagem 💌</h3>
+    <form id="noteForm" onsubmit="saveNote(event)">
+      <input id="noteName" type="text" placeholder="Seu nome" required>
+      <textarea id="noteText" rows="4" placeholder="Escreva algo..." required></textarea>
+      <button class="btn" style="margin-top:10px;">Salvar</button>
+    </form>
+    <div id="notesArea"><em>Carregando mensagens...</em></div>
+  </section>
+
   <section class="card" id="amor-texto">
     <h3>Uma mensagem pra você ❤️</h3>
     <div class="love-text">
@@ -103,56 +139,58 @@ footer{color:var(--muted);text-align:center;margin-top:10px;font-size:13px}
 </div>
 
 <script type="module">
-  // ===== FIREBASE =====
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-  const firebaseConfig = {apiKey:"AIzaSyAoL4MEVLNn3dz2RI7EMswhlgG2vlqiycE",authDomain:"chat-amor-989e7.firebaseapp.com",projectId:"chat-amor-989e7",storageBucket:"chat-amor-989e7.firebasestorage.app",messagingSenderId:"272986740088",appId:"1:272986740088:web:1b7c8b048e18f51a43e48d"};
+const firebaseConfig = {apiKey:"AIzaSyAoL4MEVLNn3dz2RI7EMswhlgG2vlqiycE",authDomain:"chat-amor-989e7.firebaseapp.com",projectId:"chat-amor-989e7",storageBucket:"chat-amor-989e7.firebasestorage.app",messagingSenderId:"272986740088",appId:"1:272986740088:web:1b7c8b048e18f51a43e48d"};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const msgsCol = collection(db,"mensagens");
 
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const msgsCol = collection(db,"mensagens");
+async function saveNoteOnline(name,text){ await addDoc(msgsCol,{nome:name,texto:text,timestamp:Date.now(),data:new Date().toLocaleString()}); }
+window.deleteMessage = async function(id){ if(confirm("Tem certeza que deseja excluir esta mensagem?")) await deleteDoc(doc(db,"mensagens",id)); }
 
-  async function saveNoteOnline(name,text){ await addDoc(msgsCol,{nome:name,texto:text,timestamp:Date.now(),data:new Date().toLocaleString()}); }
-  window.deleteMessage = async function(id){ if(confirm("Tem certeza que deseja excluir esta mensagem?")) await deleteDoc(doc(db,"mensagens",id)); }
+const q=query(msgsCol,orderBy("timestamp","desc"));
+onSnapshot(q,(snapshot)=>{
+  const area=document.getElementById('notesArea');
+  if(snapshot.empty){ area.innerHTML='<em>Nenhuma mensagem ainda.</em>'; return; }
+  let html=""; snapshot.forEach(docu=>{ const d=docu.data(); html+=`<div class="msg"><button class="deleteBtn" onclick="deleteMessage('${docu.id}')">Excluir</button><div class="meta">${d.data} — <strong>${d.nome}</strong></div><div style="margin-top:6px">${d.texto}</div></div>`; });
+  area.innerHTML=html;
+});
+window.saveNote=async function(e){e.preventDefault();const name=document.getElementById("noteName").value;const text=document.getElementById("noteText").value;if(!name||!text)return;await saveNoteOnline(name,text);document.getElementById("noteText").value="";}
 
-  const q = query(msgsCol,orderBy("timestamp","desc"));
-  onSnapshot(q,(snapshot)=>{
-    const area=document.getElementById('notesArea');
-    if(snapshot.empty){ area.innerHTML='<em>Nenhuma mensagem ainda.</em>'; return; }
-    let html=""; snapshot.forEach(docu=>{ const d=docu.data(); html+=`<div class="msg"><button class="deleteBtn" onclick="deleteMessage('${docu.id}')">Excluir</button><div class="meta">${d.data} — <strong>${d.nome}</strong></div><div style="margin-top:6px">${d.texto}</div></div>`; });
-    area.innerHTML=html;
-  });
-  window.saveNote = async function(e){ e.preventDefault(); const name=document.getElementById("noteName").value; const text=document.getElementById("noteText").value; if(!name||!text)return; await saveNoteOnline(name,text); document.getElementById("noteText").value=""; }
+// Música
+const audio=document.getElementById('musica');
+const btn=document.getElementById('musicBtn');
+btn.addEventListener('click',()=>{if(audio.paused){audio.play();btn.textContent='⏸';}else{audio.pause();btn.textContent='▶';}});
+window.addEventListener('click',()=>{audio.play().catch(()=>{});},{once:true});
 
-  // ===== MÚSICA =====
-  const audio=document.getElementById('musica');
-  const btn=document.getElementById('musicBtn');
-  btn.addEventListener('click',()=>{if(audio.paused){audio.play();btn.textContent='⏸';}else{audio.pause();btn.textContent='▶️';}});
-  window.addEventListener('click',()=>{audio.play().catch(()=>{});},{once:true}); // primeiro click inicia autoplay
+// Contador
+const startDate=new Date("2025-06-22T00:00:00"); 
+const contador=document.getElementById("contador");
+function updateCounter(){
+  const now=new Date(); 
+  let diff=now-startDate;
+  const days=Math.floor(diff/1000/60/60/24); diff-=days*1000*60*60*24;
+  const hours=Math.floor(diff/1000/60/60); diff-=hours*1000*60*60;
+  const minutes=Math.floor(diff/1000/60); diff-=minutes*1000*60;
+  const seconds=Math.floor(diff/1000);
+  contador.textContent=`${days} dias, ${hours}h ${minutes}m ${seconds}s`;
+}
+setInterval(updateCounter,1000); updateCounter();
 
-  // ===== CONTADOR =====
-  const startDate=new Date("2025-06-22T00:00:00"); const contador=document.getElementById("contador");
-  function updateCounter(){
-    const now=new Date(); let diff=now-startDate;
-    const days=Math.floor(diff/1000/60/60/24); diff-=days*1000*60*60*24;
-    const hours=Math.floor(diff/1000/60/60); diff-=hours*1000*60*60;
-    const minutes=Math.floor(diff/1000/60); diff-=minutes*1000*60;
-    const seconds=Math.floor(diff/1000);
-    contador.textContent=`${days} dias, ${hours}h ${minutes}m ${seconds}s`;
-  }
-  setInterval(updateCounter,1000); updateCounter();
-
-  // ===== PARTICULAS =====
-  const particles=["❤️","💞","🛹"];
-  function createParticle(){
-    const p=document.createElement("div"); p.className="particle"; p.textContent=particles[Math.floor(Math.random()*particles.length)];
-    p.style.left=Math.random()*window.innerWidth+"px";
-    p.style.animationDuration=(3+Math.random()*3)+"s";
-    document.body.appendChild(p);
-    setTimeout(()=>p.remove(),6000);
-  }
-  setInterval(createParticle,300);
+// Partículas
+const particles=["❤️","💞","🛹"];
+function createParticle(){
+  const p=document.createElement("div"); 
+  p.className="particle"; 
+  p.textContent=particles[Math.floor(Math.random()*particles.length)];
+  p.style.left=Math.random()*window.innerWidth+"px";
+  p.style.animationDuration=(3+Math.random()*3)+"s";
+  document.body.appendChild(p);
+  setTimeout(()=>p.remove(),6000);
+}
+setInterval(createParticle,300);
 </script>
 </body>
-</html>
+        </html>
