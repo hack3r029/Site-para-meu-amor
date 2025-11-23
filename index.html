@@ -198,7 +198,7 @@
 
 <body>
 
-<!-- ========== SENHA COM SALVAMENTO PERMANENTE ========== -->
+<!-- ========== SENHA ========== -->
 <div id="senhaTela">
   <h2>Digite a senha para acessar ❤️</h2>
   <input id="senhaInput" type="password" placeholder="Senha">
@@ -211,11 +211,8 @@
 
   function verificarSenha(){
     const entrada = document.getElementById("senhaInput").value;
-
     if(entrada === senhaCorreta){
-      // 🔥 SALVA PERMANENTEMENTE NO NAVEGADOR
-      localStorage.setItem("acessoLiberado", "sim");
-
+      sessionStorage.setItem("acessoOk", "true");
       document.getElementById("senhaTela").style.display = "none";
     } else {
       document.getElementById("senhaErro").innerText = "Senha incorreta 💔";
@@ -223,14 +220,14 @@
   }
 
   window.onload = () => {
-    if(localStorage.getItem("acessoLiberado") === "sim"){
+    if(sessionStorage.getItem("acessoOk") === "true"){
       document.getElementById("senhaTela").style.display = "none";
     } else {
       document.getElementById("senhaTela").style.display = "flex";
     }
   };
 </script>
-<!-- ========== FIM DA SENHA ========== -->
+<!-- ========== FIM SENHA ========== -->
 
 <div class="container">
 
@@ -317,6 +314,7 @@
   const db = getFirestore(app);
   const msgsCol = collection(db, "mensagens");
 
+  // SALVAR MENSAGEM
   async function saveNoteOnline(name, text){
     await addDoc(msgsCol, {
       nome: name,
@@ -333,7 +331,7 @@
     }
   };
 
-  // LISTEN REALTIME
+  // ATUALIZA EM TEMPO REAL
   const q = query(msgsCol, orderBy("timestamp", "desc"));
   onSnapshot(q, (snapshot) => {
     const area = document.getElementById('notesArea');
@@ -355,10 +353,12 @@
     area.innerHTML = html;
   });
 
+  // FORM SAVER
   window.saveNote = async function(e){
     e.preventDefault();
     const name = document.getElementById("noteName").value;
     const text = document.getElementById("noteText").value;
+    if(!name || !text) return;
     await saveNoteOnline(name, text);
     document.getElementById("noteText").value = "";
   };
