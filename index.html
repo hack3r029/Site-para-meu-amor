@@ -1,74 +1,30 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+  <body>
+
   <!-- ======== PROTEÇÃO POR SENHA ======== -->
-<style>
-  #senhaTela {
-    position: fixed;
-    inset: 0;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    z-index: 99999;
-    font-family: Arial, sans-serif;
-  }
+  <div id="senhaTela">
+    <h2>Digite a senha para acessar ❤️</h2>
+    <input type="password" id="senhaInput" placeholder="Senha">
+    <button onclick="verificarSenha()">Entrar</button>
+    <div id="senhaErro"></div>
+  </div>
 
-  #senhaTela h2 {
-    font-size: 22px;
-    margin-bottom: 10px;
-  }
+  <script>
+    const senhaCorreta = "MYLOVE5";
 
-  #senhaTela input {
-    padding: 10px;
-    font-size: 18px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    width: 200px;
-    text-align: center;
-    margin-bottom: 10px;
-  }
+    function verificarSenha() {
+      const entrada = document.getElementById("senhaInput").value;
 
-  #senhaTela button {
-    background: #ff6aa0;
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-
-  #senhaErro {
-    color: red;
-    margin-top: 10px;
-    font-size: 14px;
-  }
-</style>
-
-<div id="senhaTela">
-  <h2>Digite a senha para acessar ❤️</h2>
-  <input type="password" id="senhaInput" placeholder="Senha">
-  <button onclick="verificarSenha()">Entrar</button>
-  <div id="senhaErro"></div>
-</div>
-
-<script>
-  const senhaCorreta = "MYLOVE5";
-
-  function verificarSenha() {
-    const entrada = document.getElementById("senhaInput").value;
-
-    if (entrada === senhaCorreta) {
-      document.getElementById("senhaTela").style.display = "none";
-    } else {
-      document.getElementById("senhaErro").innerText = "Senha incorreta 💔";
+      if (entrada === senhaCorreta) {
+        document.getElementById("senhaTela").style.display = "none";
+      } else {
+        document.getElementById("senhaErro").innerText = "Senha incorreta 💔";
+      }
     }
-  }
-</script>
-<!-- ======== FIM DA PROTEÇÃO ======== -->
+  </script>
+  <!-- ======== FIM DA PROTEÇÃO ======== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Para Guilherme ❤️</title>
