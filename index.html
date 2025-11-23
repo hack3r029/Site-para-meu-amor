@@ -16,7 +16,13 @@
       --card: rgba(255,255,255,0.8);
     }
     *{box-sizing:border-box}
-    body{font-family: 'Montserrat', system-ui; margin:0; background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#222}
+    body{
+      font-family: 'Montserrat', system-ui;
+      margin:0;
+      background:linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:#222;
+      overflow-x:hidden;
+    }
 
     .container{max-width:960px;margin:32px auto;padding:20px}
 
@@ -75,14 +81,6 @@
       object-fit:contain;
     }
 
-    .countdown{
-      text-align:center;
-      font-size:18px;
-      margin-bottom:12px;
-      color:#ff2b55;
-      font-weight:600;
-    }
-
     .gallery{
       display:grid;
       grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
@@ -111,6 +109,7 @@
       font-size:13px
     }
 
+    /* ===== CORAÇÕES FIXOS ===== */
     .hearts{
       position:fixed;
       right:12px;
@@ -132,6 +131,7 @@
       box-shadow:0 6px 14px rgba(255,107,154,0.2)
     }
 
+    /* ===== MENSAGENS ===== */
     .msg {
       padding:10px;
       border-radius:8px;
@@ -159,10 +159,41 @@
       cursor:pointer;
     }
 
+    /* ===== TEXTO GRANDE BONITO ===== */
+    .love-text {
+      max-height:500px;
+      overflow-y:auto;
+      padding:16px;
+      background:linear-gradient(180deg,#fff0f6,#ffeaf3);
+      border-radius:12px;
+      line-height:1.6;
+      font-size:16px;
+      color:#222;
+      box-shadow:0 6px 12px rgba(0,0,0,0.05);
+      margin-top:12px;
+    }
+
+    .love-text p{
+      margin-bottom:12px;
+    }
+
     @media (max-width:880px){
       .hero{grid-template-columns:1fr;}
       .photo{height:200px}
     }
+
+    /* ===== PARTICULAS CAINDO ===== */
+    .particle {
+      position:fixed;
+      font-size:16px;
+      pointer-events:none;
+      animation:fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity:1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity:0; }
+    }
+
   </style>
 </head>
 
@@ -200,6 +231,12 @@
     </div>
   </header>
 
+  <!-- ===== NOSSO TEMPO ===== -->
+  <section class="card" id="tempo">
+    <h3>Nosso tempo juntos oficialmente</h3>
+    <p class="lead" id="contador">Carregando...</p>
+  </section>
+
   <section class="card hero">
     <div class="text">
       <h2>Oi, meu amor</h2>
@@ -211,10 +248,25 @@
     </div>
   </section>
 
-  <!-- ===== CRONÔMETRO ===== -->
-  <div class="countdown" id="tempoJuntos">
-    Nosso tempo juntos oficialmente: 0 dias, 0 horas, 0 minutos, 0 segundos
-  </div>
+  <!-- ===== TEXTO DO AMOR ===== -->
+  <section class="card" id="amor-texto">
+    <h3>Uma mensagem pra você ❤️</h3>
+    <div class="love-text">
+      <p>Oiii meu amor, tudo bem? 🥹</p>
+      <p>Eu espero que esteja tudo bem com você quando você estiver lendo isso aqui, você é o amor da minha vida inteira e eu só quero o seu bem. Eu fiz isso tudo aqui por você meu amor ❤️💞</p>
+      <p>Eu te amo MUITO, e eu quero falar algumas coisas pra você aqui:</p>
+      <p><strong>ESTAMOS COMPLETANDO 5 MESES! 😭😭😭😭</strong> Isso é muito tempo meu amor, fora que são 5 meses oficiais, mas a gente deve estar a quase 9 meses juntinhos 🥰</p>
+      <p>Amor, às vezes a gente tem algumas brigas e discussões, mas a gente sempre se resolve! E o meu amor por você não muda, na verdade ele muda sim, ele só aumenta! Quando acontece isso eu nunca paro de amar você, meu amor por você é realmente verdadeiro, você é literalmente o amor da minha minha vida que eu quero ter pra sempre! 💍</p>
+      <p>Meu sonho é me casar com você, meu amor! Eu quero muito que isso aconteça, eu quero morar com você, quero ter filhos com você, quero ter pets com você, quero viver tudo isso com você, você é o amor da minha vida e eu não me cansaço de falar.</p>
+      <p>Amor, eu sei que a distância agora é difícil 🥺 mas por favor, não desiste da gente! Eu nunca vou desistir de você ❤️ logo logo a gente vai se encontrar, vamos se abraçar, vamos se beijar, vamos transar... 🫦 Parei parei, mas é verdade meu amor! Vamos viver tudo que a gente sempre quis!</p>
+      <p>Nesse nosso relacionamento aconteceu TANTA coisa, e a gente passou por todas elas! Eu te amo muito e sempre vou te amar ❤️🥰💕</p>
+      <p>Eu amo você, eu amo TUDO em você ❤️ 🫵🏻</p>
+      <p>Eu amo seu cabelo 👦🏽<br>Eu amo seu nariz 👃🏽<br>Eu amo sua boca 👄<br>Eu amo sua orelha 👂🏽<br>Eu amo sua mão ✋🏽<br>Eu amo seu braço 💪🏽<br>Eu amo seus olhos 👁️<br>Eu amo seu pau 🍆🥵<br>AMO TUDO EM VOCÊ MEU AMOR ❤️❤️❤️💗💗💕💕</p>
+      <p>Eu quero seu perdão por tudo que eu já fiz de ruim 🥺</p>
+      <p>E eu quero seu amor pra sempre ❤️</p>
+      <p>Feliz 5 meses meu amor! 🥰🥹</p>
+    </div>
+  </section>
 
   <section class="card" id="galeria">
     <h3>Galeria</h3>
@@ -256,13 +308,14 @@
 
 </div>
 
+<!-- ===== CORAÇÕES FIXOS ===== -->
 <div class="hearts">
-  <div class="heart">❤</div>
-  <div class="heart">❤</div>
-  <div class="heart">❤</div>
+  <div class="heart">❤️‍🔥</div>
+  <div class="heart">🛹</div>
+  <div class="heart">🥰</div>
 </div>
 
-<!-- ===== FIREBASE E CONTROLE ===== -->
+<!-- ===== FIREBASE & JS ===== -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
@@ -281,12 +334,7 @@
   const msgsCol = collection(db, "mensagens");
 
   async function saveNoteOnline(name, text){
-    await addDoc(msgsCol, {
-      nome: name,
-      texto: text,
-      timestamp: Date.now(),
-      data: new Date().toLocaleString()
-    });
+    await addDoc(msgsCol, { nome:name, texto:text, timestamp:Date.now(), data:new Date().toLocaleString() });
   }
 
   window.deleteMessage = async function(id){
@@ -295,23 +343,18 @@
     }
   };
 
-  const q = query(msgsCol, orderBy("timestamp", "desc"));
-  onSnapshot(q, (snapshot) => {
+  const q = query(msgsCol, orderBy("timestamp","desc"));
+  onSnapshot(q,(snapshot)=>{
     const area = document.getElementById('notesArea');
-    if(snapshot.empty){
-      area.innerHTML = '<em>Nenhuma mensagem ainda.</em>';
-      return;
-    }
+    if(snapshot.empty){ area.innerHTML='<em>Nenhuma mensagem ainda.</em>'; return; }
     let html = "";
-    snapshot.forEach(docu => {
+    snapshot.forEach(docu=>{
       const d = docu.data();
-      html += `
-        <div class="msg">
-          <button class="deleteBtn" onclick="deleteMessage('${docu.id}')">Excluir</button>
-          <div class="meta">${d.data} — <strong>${d.nome}</strong></div>
-          <div style="margin-top:6px">${d.texto}</div>
-        </div>
-      `;
+      html += `<div class="msg">
+        <button class="deleteBtn" onclick="deleteMessage('${docu.id}')">Excluir</button>
+        <div class="meta">${d.data} — <strong>${d.nome}</strong></div>
+        <div style="margin-top:6px">${d.texto}</div>
+      </div>`;
     });
     area.innerHTML = html;
   });
@@ -321,56 +364,38 @@
     const name = document.getElementById("noteName").value;
     const text = document.getElementById("noteText").value;
     if(!name || !text) return;
-    await saveNoteOnline(name, text);
-    document.getElementById("noteText").value = "";
+    await saveNoteOnline(name,text);
+    document.getElementById("noteText").value="";
   };
 
-  // ===== CONTROLE DO BOTÃO DE MÚSICA =====
+  // ===== MÚSICA =====
   const audio = document.getElementById('musica');
   const btn = document.getElementById('musicBtn');
 
-  // Tenta autoplay ao carregar a página
-  window.addEventListener('load', () => {
-    const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.then(() => {
-        console.log("Música tocando automaticamente!");
-        btn.textContent = '⏸';
-      }).catch((error) => {
-        console.log("Autoplay bloqueado, clique no botão para ouvir.");
-        btn.textContent = '▶️';
-      });
-    }
+  // Toca automaticamente 3s e continua
+  window.addEventListener('load', ()=>{
+    audio.play().catch(()=>{}); // autoplay pode falhar em alguns navegadores
+    setTimeout(()=>{ audio.pause(); audio.play(); },3000);
   });
 
-  btn.addEventListener('click', () => {
-    if(audio.paused){
-      audio.play();
-      btn.textContent = '⏸';
-    } else {
-      audio.pause();
-      btn.textContent = '▶️';
-    }
+  btn.addEventListener('click', ()=>{
+    if(audio.paused){ audio.play(); btn.textContent='⏸'; } 
+    else{ audio.pause(); btn.textContent='▶️'; }
   });
 
-  // ===== CRONÔMETRO =====
-  function updateCountdown() {
-    const startDate = new Date('2025-06-22T00:00:00'); // data inicial
+  // ===== CONTADOR =====
+  const startDate = new Date("2025-06-22T00:00:00");
+  const contador = document.getElementById("contador");
+  function updateCounter(){
     const now = new Date();
-    const diff = now - startDate;
+    let diff = now - startDate;
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
+    const days = Math.floor(diff/1000/60/60/24);
+    diff -= days*1000*60*60*24;
+    const hours = Math.floor(diff/1000/60/60);
+    diff -= hours*1000*60*60;
+    const minutes = Math.floor(diff/1000/60);
+    diff -= minutes*1000*60;
+    const seconds = Math.floor(diff/1000);
 
-    document.getElementById('tempoJuntos').textContent =
-      `Nosso tempo juntos oficialmente: ${days} dias, ${hours} horas, ${minutes} minutos, ${seconds} segundos`;
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
-
-</body>
-</html>
+    contador.textContent = `${days} dias, ${hours}h
