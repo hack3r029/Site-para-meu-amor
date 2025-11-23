@@ -5,54 +5,52 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Para Guilherme ❤️</title>
 
-  <!-- ======== SENHA ======== -->
+  <!-- ======== TELA DE SENHA (CSS) ======== -->
   <style>
-    #senhaTela {
+    #senhaTela{
       position: fixed;
       inset: 0;
-      background: #fff;
+      background: #ffffff;
+      z-index: 999999999999999; /* SEMPRE POR CIMA */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 20px;
-      z-index: 99999;
       font-family: Arial, sans-serif;
     }
-    #senhaTela h2 { font-size: 22px; margin-bottom: 10px; }
+    #senhaTela h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #ff2b55;
+    }
     #senhaTela input {
-      padding: 10px; font-size: 18px; border: 2px solid #ccc;
-      border-radius: 8px; width: 200px; text-align: center; margin-bottom: 10px;
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #ff88ac;
+      border-radius: 8px;
+      width: 220px;
+      text-align: center;
+      margin-bottom: 10px;
     }
     #senhaTela button {
-      background: #ff6aa0; color: white; font-size: 16px;
-      padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;
+      background: linear-gradient(90deg,#ff6b9a,#ff88ac);
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
     }
-    #senhaErro { color: red; margin-top: 10px; font-size: 14px; }
+    #senhaErro {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
   </style>
 
-  <div id="senhaTela">
-    <h2>Digite a senha para acessar ❤️</h2>
-    <input type="password" id="senhaInput" placeholder="Senha">
-    <button onclick="verificarSenha()">Entrar</button>
-    <div id="senhaErro"></div>
-  </div>
-
-  <script>
-    const senhaCorreta = "MYLOVE5";
-    function verificarSenha() {
-      const entrada = document.getElementById("senhaInput").value;
-      if (entrada === senhaCorreta) {
-        document.getElementById("senhaTela").style.display = "none";
-      } else {
-        document.getElementById("senhaErro").innerText = "Senha incorreta 💔";
-      }
-    }
-  </script>
-  <!-- ======== FIM SENHA ======== -->
-
+  <!-- ======== ESTILO DO SITE ORIGINAL (NÃO ALTERADO) ======== -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
       --bg1: #fff8fb;
@@ -61,207 +59,279 @@
       --muted: #6b6b6b;
       --card: rgba(255,255,255,0.8);
     }
-    body{
-      font-family: 'Montserrat', sans-serif; margin:0;
-      background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#222;
-    }
+    *{box-sizing:border-box}
+    body{font-family: 'Montserrat', system-ui; margin:0; background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#222}
+
     .container{max-width:960px;margin:32px auto;padding:20px}
 
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#ffeaf3,#ffebf5);display:flex;align-items:center;justify-content:center;font-size:34px;color:#ff6b9a}
+
+    h1{font-family:'Playfair Display', serif;margin:0;font-size:32px;color:#ff2b55}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+
     .card{
-      background:var(--card);backdrop-filter: blur(6px);
-      border-radius:14px;padding:18px;margin-bottom:20px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.06)
+      background:var(--card);
+      backdrop-filter: blur(6px);
+      border-radius:14px;
+      padding:20px;
+      margin-bottom:20px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08)
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns:1fr 320px;
+      gap:18px;
+      align-items:center
+    }
+
+    .hero .text h2{
+      font-family:'Playfair Display';
+      font-size:28px;
+      margin:0 0 8px;
+      color:#ff2b55;
     }
 
     .btn{
-      display:inline-block;padding:10px 14px;border-radius:12px;
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
       background:linear-gradient(90deg,var(--accent),#ff88ac);
-      color:#fff;text-decoration:none;font-weight:600;
-      border:none;cursor:pointer;
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
     }
-    
+
+    .photo{
+      width:100%;
+      height:260px;
+      border-radius:12px;
+      overflow:hidden;
+      background:#ffeef6;
+      display:flex;
+      align-items:center;
+      justify-content:center
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+      gap:10px
+    }
+
+    .letters blockquote{
+      margin:0;
+      padding:12px 16px;
+      border-left:4px solid #ffd0e0;
+      background:linear-gradient(180deg,rgba(255,240,248,0.6),transparent);
+      border-radius:8px;
+    }
+
+    footer{
+      color:var(--muted);
+      text-align:center;
+      margin-top:10px;
+      font-size:13px
+    }
+
+    .hearts{
+      position:fixed;
+      right:12px;
+      bottom:12px;
+      display:flex;
+      flex-direction:column-reverse;
+      gap:8px;
+    }
+    .heart{
+      width:44px;
+      height:44px;
+      border-radius:50%;
+      background:linear-gradient(135deg,#ff6b9a,#ff9cc1);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:white;
+      font-size:20px;
+      box-shadow:0 6px 14px rgba(255,107,154,0.2)
+    }
+
     .msg {
-      padding:10px;border-radius:8px;border:1px solid #fde8f1;
-      margin-bottom:10px;background:#fff;position:relative;
+      padding:10px;
+      border-radius:8px;
+      border:1px solid #fde8f1;
+      margin-bottom:8px;
+      background:white
     }
-    .msg .deleteBtn{
-      position:absolute;right:10px;top:10px;
-      background:#ff6b9a;color:#fff;border:none;
-      padding:4px 8px;border-radius:4px;font-size:12px;
-      cursor:pointer;
+    .msg .meta {
+      font-size:13px;
+      color:var(--muted)
     }
-    audio{ width:100%; margin-top:6px; }
+
+    @media (max-width:880px){
+      .hero{grid-template-columns:1fr;}
+      .photo{height:200px}
+    }
   </style>
 </head>
 
 <body>
-  <div class="container">
 
-    <section class="card">
-      <h2>Deixe uma mensagem 💕</h2>
-      <form id="noteForm" onsubmit="saveNote(event)">
-        <input id="noteName" type="text" placeholder="Seu nome" required
-          style="width:100%;padding:10px;margin-bottom:10px;border-radius:8px;border:1px solid #f0dbe2">
+<!-- ========== SENHA NOVA (FUNCIONANDO 100%) ========== -->
+<div id="senhaTela">
+  <h2>Digite a senha para acessar ❤️</h2>
+  <input id="senhaInput" type="password" placeholder="Senha">
+  <button onclick="verificarSenha()">Entrar</button>
+  <div id="senhaErro"></div>
+</div>
 
-        <textarea id="noteText" rows="3" placeholder="Escreva algo doce..."
-          style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2;resize:vertical"></textarea>
+<script>
+  const senhaCorreta = "MYLOVE5";
 
-        <button class="btn" type="submit" style="margin-top:10px;width:100%">
-          Enviar mensagem ❤️
-        </button>
-      </form>
-
-      <!-- GRAVAÇÃO DE ÁUDIO -->
-      <div style="margin-top:15px">
-        <h3>Gravar áudio 🎤</h3>
-        <button id="recordBtn" class="btn" onclick="toggleRecord()">
-          🎤 Iniciar gravação
-        </button>
-        <p id="recordStatus" style="color:var(--muted);margin-top:8px;"></p>
-      </div>
-
-      <div id="notesArea" style="margin-top:20px">
-        <em>Carregando mensagens...</em>
-      </div>
-    </section>
-  </div>
-
-  <!-- Firebase -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-    import {
-      getFirestore, collection, addDoc, deleteDoc, doc,
-      query, orderBy, onSnapshot
-    } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
-
-    import {
-      getStorage, ref, uploadBytes, getDownloadURL
-    } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-storage.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyB1YSEkJdFC2woR-1O-h-C_-hMWrMhJzNU",
-      authDomain: "mensagens-guilherme.firebaseapp.com",
-      projectId: "mensagens-guilherme",
-      storageBucket: "mensagens-guilherme.firebasestorage.app",
-      messagingSenderId: "708631649836",
-      appId: "1:708631649836:web:80337bce5195d511cd7b89"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const storage = getStorage(app);
-    const msgsCol = collection(db, "mensagens");
-
-    // Salvar texto
-    async function saveNoteOnline(name, text){
-      await addDoc(msgsCol, {
-        nome: name,
-        texto: text || null,
-        audio: null,
-        timestamp: Date.now(),
-        data: new Date().toLocaleString()
-      });
+  function verificarSenha(){
+    const entrada = document.getElementById("senhaInput").value;
+    if(entrada === senhaCorreta){
+      sessionStorage.setItem("acessoOk", "true");
+      document.getElementById("senhaTela").style.display = "none";
+    } else {
+      document.getElementById("senhaErro").innerText = "Senha incorreta 💔";
     }
+  }
 
-    // Salvar áudio
-    async function saveAudioOnline(name, audioBlob){
-      const filename = `audios/audio_${Date.now()}.webm`;
-      const storageRef = ref(storage, filename);
-      await uploadBytes(storageRef, audioBlob);
-      const downloadURL = await getDownloadURL(storageRef);
-
-      await addDoc(msgsCol, {
-        nome: name,
-        texto: null,
-        audio: downloadURL,
-        timestamp: Date.now(),
-        data: new Date().toLocaleString()
-      });
+  window.onload = () => {
+    if(sessionStorage.getItem("acessoOk") === "true"){
+      document.getElementById("senhaTela").style.display = "none";
+    } else {
+      document.getElementById("senhaTela").style.display = "flex";
     }
+  };
+</script>
+<!-- ========== FIM DA SENHA ========== -->
 
-    // Excluir mensagem
-    window.deleteMessage = async function(id){
-      if(confirm("Tem certeza que deseja excluir esta mensagem?")){
-        await deleteDoc(doc(db, "mensagens", id));
-      }
-    };
 
-    // Listener
-    const q = query(msgsCol, orderBy("timestamp", "desc"));
-    onSnapshot(q, (snapshot) => {
-      const area = document.getElementById("notesArea");
-      if(snapshot.empty){
-        area.innerHTML = "<em>Nenhuma mensagem ainda.</em>";
-        return;
-      }
+<div class="container">
 
-      let html = "";
-      snapshot.forEach(docu => {
-        const d = docu.data();
-        html += `
-          <div class="msg">
-            <button class="deleteBtn" onclick="deleteMessage('${docu.id}')">Excluir</button>
-            <div class="meta"><strong>${d.nome}</strong> — ${d.data}</div>
+  <header>
+    <div class="logo">❤</div>
+    <div>
+      <h1>Para Guilherme</h1>
+      <p class="lead">Um cantinho só nosso — cheio de amor ❤️</p>
+    </div>
+  </header>
 
-            ${d.texto ? `<p style="margin-top:6px">${d.texto}</p>` : ""}
+  <section class="card hero">
+    <div class="text">
+      <h2>Oi, meu amor</h2>
+      <p>Aqui ficam nossas memórias, fotos, mensagens e tudo que eu sinto por você.</p>
+      <p style="margin-top:12px"><a class="btn" href="#cartas">Ler cartas</a></p>
+    </div>
+    <div class="photo">
+      <img src="https://raw.githubusercontent.com/hack3r029/Foto1/main/IMG-20251020-WA0280.jpg">
+    </div>
+  </section>
 
-            ${d.audio ? `<audio controls src="${d.audio}"></audio>` : ""}
-          </div>
-        `;
-      });
+  <section class="card" id="galeria">
+    <h3>Galeria</h3>
+    <p class="lead">Algumas imagens fofas…</p>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/400x300.png?text=Foto+1" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
+      <img src="https://via.placeholder.com/400x300.png?text=Foto+2" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
+      <img src="https://via.placeholder.com/400x300.png?text=Foto+3" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
+      <img src="https://via.placeholder.com/400x300.png?text=Foto+4" style="width:100%;height:140px;object-fit:cover;border-radius:8px;">
+    </div>
+  </section>
 
-      area.innerHTML = html;
+  <section class="card" id="cartas">
+    <h3>Cartas & Mensagens</h3>
+    <div class="letters">
+      <blockquote><strong>Meu amor:</strong> Você é meu lugar seguro.</blockquote>
+      <blockquote><strong>Hoje:</strong> Pensei em você mais do que devia…</blockquote>
+      <blockquote><strong>Promessa:</strong> Estarei com você em todas as versões da nossa vida.</blockquote>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Deixe uma mensagem 💌</h3>
+    <form id="noteForm" onsubmit="saveNote(event)">
+      <input id="noteName" type="text" placeholder="Seu nome" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2;margin-bottom:10px">
+      <textarea id="noteText" rows="4" placeholder="Escreva algo..." required style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2"></textarea>
+
+      <button class="btn" style="margin-top:10px;">Salvar</button>
+    </form>
+
+    <div id="notesArea" style="margin-top:12px"><em>Carregando mensagens...</em></div>
+  </section>
+
+  <footer>Feito com ❤️ para Guilherme.</footer>
+
+</div>
+
+<div class="hearts">
+  <div class="heart">❤</div>
+  <div class="heart">❤</div>
+  <div class="heart">❤</div>
+</div>
+
+<!-- FIREBASE -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB1YSEkJdFC2woR-1O-h-C_-hMWrMhJzNU",
+    authDomain: "mensagens-guilherme.firebaseapp.com",
+    projectId: "mensagens-guilherme",
+    storageBucket: "mensagens-guilherme.firebasestorage.app",
+    messagingSenderId: "708631649836",
+    appId: "1:708631649836:web:80337bce5195d511cd7b89"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const msgsCol = collection(db, "mensagens");
+
+  async function saveNoteOnline(name, text){
+    await addDoc(msgsCol, {
+      nome: name,
+      texto: text,
+      timestamp: Date.now(),
+      data: new Date().toLocaleString()
     });
+  }
 
-    // Enviar texto
-    window.saveNote = async function(e){
-      e.preventDefault();
-      const name = document.getElementById("noteName").value.trim();
-      const text = document.getElementById("noteText").value.trim();
-      if(!name) return alert("Escreva seu nome 💕");
-      if(!text) return alert("Escreva sua mensagem 💕");
+  const q = query(msgsCol, orderBy("timestamp", "desc"));
+  onSnapshot(q, (snapshot) => {
+    const area = document.getElementById('notesArea');
+    if(snapshot.empty){
+      area.innerHTML = '<em>Nenhuma mensagem ainda.</em>';
+      return;
+    }
+    let html = "";
+    snapshot.forEach(doc => {
+      const d = doc.data();
+      html += `
+        <div class="msg">
+          <div class="meta">${d.data} — <strong>${d.nome}</strong></div>
+          <div style="margin-top:6px">${d.texto}</div>
+        </div>
+      `;
+    });
+    area.innerHTML = html;
+  });
 
-      await saveNoteOnline(name, text);
-      document.getElementById("noteText").value = "";
-    };
-
-    // GRAVAÇÃO DE ÁUDIO
-    let recorder, chunks = [], recording = false;
-
-    window.toggleRecord = async function(){
-      const status = document.getElementById("recordStatus");
-      const btn = document.getElementById("recordBtn");
-
-      if(!recording){
-        const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-        recorder = new MediaRecorder(stream);
-
-        recorder.ondataavailable = e => chunks.push(e.data);
-        recorder.onstop = async () => {
-          const blob = new Blob(chunks, { type: "audio/webm" });
-          chunks = [];
-
-          const name = prompt("Seu nome para enviar o áudio:");
-          if(name){
-            await saveAudioOnline(name, blob);
-            status.innerHTML = "Áudio enviado com sucesso! ❤️";
-          }
-        };
-
-        recorder.start();
-        recording = true;
-        btn.innerText = "⏹ Parar gravação";
-        status.innerText = "Gravando áudio...";
-      }
-      else{
-        recorder.stop();
-        recording = false;
-        btn.innerText = "🎤 Iniciar gravação";
-        status.innerText = "";
-      }
-    };
-
-  </script>
+  window.saveNote = async function(e){
+    e.preventDefault();
+    const name = document.getElementById('noteName').value;
+    const text = document.getElementById('noteText').value;
+    await saveNoteOnline(name, text);
+    document.getElementById('noteText').value = "";
+  };
+</script>
 
 </body>
 </html>
