@@ -5,23 +5,24 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Para Guilherme ❤️</title>
 
-  <!-- ======== TELA DE SENHA ======== -->
+  <!-- ======== TELA DE SENHA (CSS) ======== -->
   <style>
-    #senhaTela {
+    #senhaTela{
       position: fixed;
       inset: 0;
-      background: #fff;
+      background: #ffffff;
+      z-index: 999999999999999; /* SEMPRE POR CIMA */
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 20px;
-      z-index: 999999999;
       font-family: Arial, sans-serif;
     }
     #senhaTela h2 {
       font-size: 22px;
       margin-bottom: 10px;
+      color: #ff2b55;
     }
     #senhaTela input {
       padding: 10px;
@@ -42,13 +43,13 @@
       cursor: pointer;
     }
     #senhaErro {
-      color: #ff2b55;
+      color: red;
       margin-top: 10px;
       font-size: 14px;
     }
   </style>
 
-  <!-- ======== ESTILO DO SITE ORIGINAL ======== -->
+  <!-- ======== ESTILO DO SITE ORIGINAL (NÃO ALTERADO) ======== -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root{
@@ -181,7 +182,7 @@
 
 <body>
 
-<!-- ========== BLOQUEIO POR SENHA ========== -->
+<!-- ========== SENHA NOVA (FUNCIONANDO 100%) ========== -->
 <div id="senhaTela">
   <h2>Digite a senha para acessar ❤️</h2>
   <input id="senhaInput" type="password" placeholder="Senha">
@@ -195,18 +196,23 @@
   function verificarSenha(){
     const entrada = document.getElementById("senhaInput").value;
     if(entrada === senhaCorreta){
-      localStorage.setItem("acessoLiberado", "sim");
+      sessionStorage.setItem("acessoOk", "true");
       document.getElementById("senhaTela").style.display = "none";
     } else {
       document.getElementById("senhaErro").innerText = "Senha incorreta 💔";
     }
   }
 
-  if(localStorage.getItem("acessoLiberado")==="sim"){
-    document.getElementById("senhaTela").style.display = "none";
-  }
+  window.onload = () => {
+    if(sessionStorage.getItem("acessoOk") === "true"){
+      document.getElementById("senhaTela").style.display = "none";
+    } else {
+      document.getElementById("senhaTela").style.display = "flex";
+    }
+  };
 </script>
 <!-- ========== FIM DA SENHA ========== -->
+
 
 <div class="container">
 
@@ -328,4 +334,4 @@
 </script>
 
 </body>
-  </html>
+</html>
