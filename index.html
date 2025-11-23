@@ -159,11 +159,29 @@
 </head>
 
 <body>
-<!-- Coloque isso dentro do <body>, de preferência logo no início -->
-<audio id="musica" autoplay loop>
+
+<!-- ===== MÚSICA COM BOTÃO ===== -->
+<audio id="musica" loop>
   <source src="https://raw.githubusercontent.com/hack3r029/music/main/AUD-20251123-WA0558.mp3" type="audio/mpeg">
-  Seu navegador não suporta reprodução de áudio.
 </audio>
+<div id="musicBtn" style="
+    position:fixed;
+    left:12px;
+    bottom:12px;
+    width:50px;
+    height:50px;
+    background:linear-gradient(135deg,#ff6b9a,#ff9cc1);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:24px;
+    cursor:pointer;
+    box-shadow:0 6px 14px rgba(255,107,154,0.2);
+    z-index:999;
+">▶</div>
+
 <div class="container">
 
   <header>
@@ -297,6 +315,20 @@
     await saveNoteOnline(name, text);
     document.getElementById("noteText").value = "";
   };
+
+  // ===== CONTROLE DO BOTÃO DE MÚSICA =====
+  const audio = document.getElementById('musica');
+  const btn = document.getElementById('musicBtn');
+
+  btn.addEventListener('click', () => {
+    if(audio.paused){
+      audio.play();
+      btn.textContent = '⏸';
+    } else {
+      audio.pause();
+      btn.textContent = '▶';
+    }
+  });
 </script>
 
 </body>
