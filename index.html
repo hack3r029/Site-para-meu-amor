@@ -1,228 +1,55 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Para Guilherme ❤️</title>
-
-  <!-- ======== ESTILO DO SITE ======== -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg1: #fff8fb;
-      --bg2: #fff0f6;
-      --accent: #ff6b9a;
-      --muted: #6b6b6b;
-      --card: rgba(255,255,255,0.8);
-    }
-    *{box-sizing:border-box}
-    body{
-      font-family: 'Montserrat', system-ui;
-      margin:0;
-      background:linear-gradient(180deg,var(--bg1),var(--bg2));
-      color:#222;
-      overflow-x:hidden;
-    }
-
-    .container{max-width:960px;margin:32px auto;padding:20px}
-
-    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#ffeaf3,#ffebf5);display:flex;align-items:center;justify-content:center;font-size:34px;color:#ff6b9a}
-
-    h1{font-family:'Playfair Display', serif;margin:0;font-size:32px;color:#ff2b55}
-    p.lead{margin:6px 0 0;color:var(--muted)}
-
-    .card{
-      background:var(--card);
-      backdrop-filter: blur(6px);
-      border-radius:14px;
-      padding:20px;
-      margin-bottom:20px;
-      box-shadow:0 6px 18px rgba(0,0,0,0.08)
-    }
-
-    .hero{
-      display:grid;
-      grid-template-columns:1fr 320px;
-      gap:18px;
-      align-items:center
-    }
-
-    .hero .text h2{
-      font-family:'Playfair Display';
-      font-size:28px;
-      margin:0 0 8px;
-      color:#ff2b55;
-    }
-
-    .btn{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:12px;
-      background:linear-gradient(90deg,var(--accent),#ff88ac);
-      color:#fff;
-      text-decoration:none;
-      font-weight:600;
-    }
-
-    .photo{
-      width:100%;
-      height:260px;
-      border-radius:12px;
-      overflow:hidden;
-      background:#ffeef6;
-      display:flex;
-      align-items:center;
-      justify-content:center
-    }
-    .photo img{
-      width:100%;
-      height:100%;
-      object-fit:contain;
-    }
-
-    .gallery{
-      display:grid;
-      grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-      gap:10px
-    }
-
-    .gallery img{
-      width:100%;
-      height:140px;
-      object-fit:cover;
-      border-radius:8px;
-    }
-
-    .letters blockquote{
-      margin:0;
-      padding:12px 16px;
-      border-left:4px solid #ffd0e0;
-      background:linear-gradient(180deg,rgba(255,240,248,0.6),transparent);
-      border-radius:8px;
-    }
-
-    footer{
-      color:var(--muted);
-      text-align:center;
-      margin-top:10px;
-      font-size:13px
-    }
-
-    /* ===== CORAÇÕES FIXOS ===== */
-    .hearts{
-      position:fixed;
-      right:12px;
-      bottom:12px;
-      display:flex;
-      flex-direction:column-reverse;
-      gap:8px;
-    }
-    .heart{
-      width:44px;
-      height:44px;
-      border-radius:50%;
-      background:linear-gradient(135deg,#ff6b9a,#ff9cc1);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-size:20px;
-      box-shadow:0 6px 14px rgba(255,107,154,0.2)
-    }
-
-    /* ===== MENSAGENS ===== */
-    .msg {
-      padding:10px;
-      border-radius:8px;
-      border:1px solid #fde8f1;
-      margin-bottom:8px;
-      background:white;
-      position:relative;
-    }
-
-    .msg .meta {
-      font-size:13px;
-      color:var(--muted)
-    }
-
-    .deleteBtn{
-      position:absolute;
-      right:10px;
-      top:10px;
-      background:#ff6b9a;
-      color:#fff;
-      border:none;
-      padding:4px 8px;
-      border-radius:4px;
-      font-size:12px;
-      cursor:pointer;
-    }
-
-    /* ===== TEXTO GRANDE BONITO ===== */
-    .love-text {
-      max-height:500px;
-      overflow-y:auto;
-      padding:16px;
-      background:linear-gradient(180deg,#fff0f6,#ffeaf3);
-      border-radius:12px;
-      line-height:1.6;
-      font-size:16px;
-      color:#222;
-      box-shadow:0 6px 12px rgba(0,0,0,0.05);
-      margin-top:12px;
-    }
-
-    .love-text p{
-      margin-bottom:12px;
-    }
-
-    @media (max-width:880px){
-      .hero{grid-template-columns:1fr;}
-      .photo{height:200px}
-    }
-
-    /* ===== PARTICULAS CAINDO ===== */
-    .particle {
-      position:fixed;
-      font-size:16px;
-      pointer-events:none;
-      animation:fall linear infinite;
-    }
-    @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg); opacity:1; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity:0; }
-    }
-
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Para Guilherme ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg1: #fff8fb;
+  --bg2: #fff0f6;
+  --accent: #ff6b9a;
+  --muted: #6b6b6b;
+  --card: rgba(255,255,255,0.8);
+}
+*{box-sizing:border-box}
+body{font-family: 'Montserrat', system-ui; margin:0; background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#222; overflow-x:hidden;}
+.container{max-width:960px;margin:32px auto;padding:20px}
+header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#ffeaf3,#ffebf5);display:flex;align-items:center;justify-content:center;font-size:34px;color:#ff6b9a}
+h1{font-family:'Playfair Display', serif;margin:0;font-size:32px;color:#ff2b55}
+p.lead{margin:6px 0 0;color:var(--muted)}
+.card{background:var(--card);backdrop-filter: blur(6px);border-radius:14px;padding:20px;margin-bottom:20px;box-shadow:0 6px 18px rgba(0,0,0,0.08)}
+.hero{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:center}
+.hero .text h2{font-family:'Playfair Display';font-size:28px;margin:0 0 8px;color:#ff2b55;}
+.btn{display:inline-block;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff88ac);color:#fff;text-decoration:none;font-weight:600;}
+.photo{width:100%;height:260px;border-radius:12px;overflow:hidden;background:#ffeef6;display:flex;align-items:center;justify-content:center}
+.photo img{width:100%;height:100%;object-fit:contain;}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.gallery img{width:100%;height:140px;object-fit:cover;border-radius:8px;}
+.letters blockquote{margin:0;padding:12px 16px;border-left:4px solid #ffd0e0;background:linear-gradient(180deg,rgba(255,240,248,0.6),transparent);border-radius:8px;}
+footer{color:var(--muted);text-align:center;margin-top:10px;font-size:13px}
+.hearts{position:fixed;right:12px;bottom:12px;display:flex;flex-direction:column-reverse;gap:8px;}
+.heart{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#ff6b9a,#ff9cc1);display:flex;align-items:center;justify-content:center;color:white;font-size:20px;box-shadow:0 6px 14px rgba(255,107,154,0.2)}
+.msg{padding:10px;border-radius:8px;border:1px solid #fde8f1;margin-bottom:8px;background:white;position:relative;}
+.msg .meta{font-size:13px;color:var(--muted)}
+.deleteBtn{position:absolute;right:10px;top:10px;background:#ff6b9a;color:#fff;border:none;padding:4px 8px;border-radius:4px;font-size:12px;cursor:pointer;}
+.love-text{max-height:500px;overflow-y:auto;padding:16px;background:linear-gradient(180deg,#fff0f6,#ffeaf3);border-radius:12px;line-height:1.6;font-size:16px;color:#222;box-shadow:0 6px 12px rgba(0,0,0,0.05);margin-top:12px;}
+.love-text p{margin-bottom:12px;}
+@media (max-width:880px){.hero{grid-template-columns:1fr;}.photo{height:200px}}
+.particle{position:fixed;font-size:16px;pointer-events:none;animation:fall linear infinite;}
+@keyframes fall{0% { transform: translateY(-50px) rotate(0deg); opacity:1; } 100% { transform: translateY(110vh) rotate(360deg); opacity:0; }}
+</style>
 </head>
-
 <body>
 
-<!-- ===== MÚSICA COM BOTÃO ===== -->
 <audio id="musica" loop>
   <source src="https://raw.githubusercontent.com/hack3r029/music/main/AUD-20251123-WA0558.mp3" type="audio/mpeg">
 </audio>
-<div id="musicBtn" style="
-    position:fixed;
-    left:12px;
-    bottom:12px;
-    width:50px;
-    height:50px;
-    background:linear-gradient(135deg,#ff6b9a,#ff9cc1);
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:white;
-    font-size:24px;
-    cursor:pointer;
-    box-shadow:0 6px 14px rgba(255,107,154,0.2);
-    z-index:999;
-">▶</div>
+<div id="musicBtn" style="position:fixed;left:12px;bottom:12px;width:50px;height:50px;background:linear-gradient(135deg,#ff6b9a,#ff9cc1);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:24px;cursor:pointer;box-shadow:0 6px 14px rgba(255,107,154,0.2);z-index:999;">▶</div>
 
 <div class="container">
-
   <header>
     <div class="logo">❤</div>
     <div>
@@ -231,7 +58,6 @@
     </div>
   </header>
 
-  <!-- ===== NOSSO TEMPO ===== -->
   <section class="card" id="tempo">
     <h3>Nosso tempo juntos oficialmente</h3>
     <p class="lead" id="contador">Carregando...</p>
@@ -241,14 +67,13 @@
     <div class="text">
       <h2>Oi, meu amor</h2>
       <p>Aqui ficam nossas memórias, fotos, mensagens e tudo que eu sinto por você.</p>
-      <p style="margin-top:12px"><a class="btn" href="#cartas">Ler cartas</a></p>
+      <p style="margin-top:12px"><a class="btn" href="#amor-texto">Ler carta</a></p>
     </div>
     <div class="photo">
       <img src="https://raw.githubusercontent.com/hack3r029/Foto1/main/IMG-20251020-WA0280.jpg">
     </div>
   </section>
 
-  <!-- ===== TEXTO DO AMOR ===== -->
   <section class="card" id="amor-texto">
     <h3>Uma mensagem pra você ❤️</h3>
     <div class="love-text">
@@ -268,134 +93,66 @@
     </div>
   </section>
 
-  <section class="card" id="galeria">
-    <h3>Galeria</h3>
-    <p class="lead">Algumas imagens fofas…</p>
-    <div class="gallery">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0107.jpg">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0114.jpg">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0124.jpg">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0257.jpg">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251014-WA0308.jpg">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251031-WA0419.jpg">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251110-WA0882.jpg">
-      <img src="https://raw.githubusercontent.com/hack3r029/Foto2/refs/heads/main/IMG-20251121-WA0611.jpg">
-    </div>
-  </section>
-
-  <section class="card" id="cartas">
-    <h3>Cartas & Mensagens</h3>
-    <div class="letters">
-      <blockquote><strong>Meu amor:</strong> Você é meu lugar seguro.</blockquote>
-      <blockquote><strong>Hoje:</strong> Pensei em você mais do que devia…</blockquote>
-      <blockquote><strong>Promessa:</strong> Estarei com você em todas as versões da nossa vida.</blockquote>
-    </div>
-  </section>
-
-  <section class="card">
-    <h3>Deixe uma mensagem 💌</h3>
-    <form id="noteForm" onsubmit="saveNote(event)">
-      <input id="noteName" type="text" placeholder="Seu nome" required style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2;margin-bottom:10px">
-      <textarea id="noteText" rows="4" placeholder="Escreva algo..." required style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2"></textarea>
-
-      <button class="btn" style="margin-top:10px;">Salvar</button>
-    </form>
-
-    <div id="notesArea" style="margin-top:12px"><em>Carregando mensagens...</em></div>
-  </section>
-
   <footer>Feito com ❤️ para Guilherme.</footer>
-
 </div>
 
-<!-- ===== CORAÇÕES FIXOS ===== -->
 <div class="hearts">
   <div class="heart">❤️‍🔥</div>
   <div class="heart">🛹</div>
   <div class="heart">🥰</div>
 </div>
 
-<!-- ===== FIREBASE & JS ===== -->
 <script type="module">
+  // ===== FIREBASE =====
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import { getFirestore, collection, addDoc, query, orderBy, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAoL4MEVLNn3dz2RI7EMswhlgG2vlqiycE",
-    authDomain: "chat-amor-989e7.firebaseapp.com",
-    projectId: "chat-amor-989e7",
-    storageBucket: "chat-amor-989e7.firebasestorage.app",
-    messagingSenderId: "272986740088",
-    appId: "1:272986740088:web:1b7c8b048e18f51a43e48d"
-  };
+  const firebaseConfig = {apiKey:"AIzaSyAoL4MEVLNn3dz2RI7EMswhlgG2vlqiycE",authDomain:"chat-amor-989e7.firebaseapp.com",projectId:"chat-amor-989e7",storageBucket:"chat-amor-989e7.firebasestorage.app",messagingSenderId:"272986740088",appId:"1:272986740088:web:1b7c8b048e18f51a43e48d"};
 
   const app = initializeApp(firebaseConfig);
   const db = getFirestore(app);
-  const msgsCol = collection(db, "mensagens");
+  const msgsCol = collection(db,"mensagens");
 
-  async function saveNoteOnline(name, text){
-    await addDoc(msgsCol, { nome:name, texto:text, timestamp:Date.now(), data:new Date().toLocaleString() });
-  }
+  async function saveNoteOnline(name,text){ await addDoc(msgsCol,{nome:name,texto:text,timestamp:Date.now(),data:new Date().toLocaleString()}); }
+  window.deleteMessage = async function(id){ if(confirm("Tem certeza que deseja excluir esta mensagem?")) await deleteDoc(doc(db,"mensagens",id)); }
 
-  window.deleteMessage = async function(id){
-    if(confirm("Tem certeza que deseja excluir esta mensagem?")){
-      await deleteDoc(doc(db, "mensagens", id));
-    }
-  };
-
-  const q = query(msgsCol, orderBy("timestamp","desc"));
+  const q = query(msgsCol,orderBy("timestamp","desc"));
   onSnapshot(q,(snapshot)=>{
-    const area = document.getElementById('notesArea');
+    const area=document.getElementById('notesArea');
     if(snapshot.empty){ area.innerHTML='<em>Nenhuma mensagem ainda.</em>'; return; }
-    let html = "";
-    snapshot.forEach(docu=>{
-      const d = docu.data();
-      html += `<div class="msg">
-        <button class="deleteBtn" onclick="deleteMessage('${docu.id}')">Excluir</button>
-        <div class="meta">${d.data} — <strong>${d.nome}</strong></div>
-        <div style="margin-top:6px">${d.texto}</div>
-      </div>`;
-    });
-    area.innerHTML = html;
+    let html=""; snapshot.forEach(docu=>{ const d=docu.data(); html+=`<div class="msg"><button class="deleteBtn" onclick="deleteMessage('${docu.id}')">Excluir</button><div class="meta">${d.data} — <strong>${d.nome}</strong></div><div style="margin-top:6px">${d.texto}</div></div>`; });
+    area.innerHTML=html;
   });
-
-  window.saveNote = async function(e){
-    e.preventDefault();
-    const name = document.getElementById("noteName").value;
-    const text = document.getElementById("noteText").value;
-    if(!name || !text) return;
-    await saveNoteOnline(name,text);
-    document.getElementById("noteText").value="";
-  };
+  window.saveNote = async function(e){ e.preventDefault(); const name=document.getElementById("noteName").value; const text=document.getElementById("noteText").value; if(!name||!text)return; await saveNoteOnline(name,text); document.getElementById("noteText").value=""; }
 
   // ===== MÚSICA =====
-  const audio = document.getElementById('musica');
-  const btn = document.getElementById('musicBtn');
-
-  // Toca automaticamente 3s e continua
-  window.addEventListener('load', ()=>{
-    audio.play().catch(()=>{}); // autoplay pode falhar em alguns navegadores
-    setTimeout(()=>{ audio.pause(); audio.play(); },3000);
-  });
-
-  btn.addEventListener('click', ()=>{
-    if(audio.paused){ audio.play(); btn.textContent='⏸'; } 
-    else{ audio.pause(); btn.textContent='▶️'; }
-  });
+  const audio=document.getElementById('musica');
+  const btn=document.getElementById('musicBtn');
+  btn.addEventListener('click',()=>{if(audio.paused){audio.play();btn.textContent='⏸';}else{audio.pause();btn.textContent='▶️';}});
+  window.addEventListener('click',()=>{audio.play().catch(()=>{});},{once:true}); // primeiro click inicia autoplay
 
   // ===== CONTADOR =====
-  const startDate = new Date("2025-06-22T00:00:00");
-  const contador = document.getElementById("contador");
+  const startDate=new Date("2025-06-22T00:00:00"); const contador=document.getElementById("contador");
   function updateCounter(){
-    const now = new Date();
-    let diff = now - startDate;
+    const now=new Date(); let diff=now-startDate;
+    const days=Math.floor(diff/1000/60/60/24); diff-=days*1000*60*60*24;
+    const hours=Math.floor(diff/1000/60/60); diff-=hours*1000*60*60;
+    const minutes=Math.floor(diff/1000/60); diff-=minutes*1000*60;
+    const seconds=Math.floor(diff/1000);
+    contador.textContent=`${days} dias, ${hours}h ${minutes}m ${seconds}s`;
+  }
+  setInterval(updateCounter,1000); updateCounter();
 
-    const days = Math.floor(diff/1000/60/60/24);
-    diff -= days*1000*60*60*24;
-    const hours = Math.floor(diff/1000/60/60);
-    diff -= hours*1000*60*60;
-    const minutes = Math.floor(diff/1000/60);
-    diff -= minutes*1000*60;
-    const seconds = Math.floor(diff/1000);
-
-    contador.textContent = `${days} dias, ${hours}h
+  // ===== PARTICULAS =====
+  const particles=["❤️","💞","🛹"];
+  function createParticle(){
+    const p=document.createElement("div"); p.className="particle"; p.textContent=particles[Math.floor(Math.random()*particles.length)];
+    p.style.left=Math.random()*window.innerWidth+"px";
+    p.style.animationDuration=(3+Math.random()*3)+"s";
+    document.body.appendChild(p);
+    setTimeout(()=>p.remove(),6000);
+  }
+  setInterval(createParticle,300);
+</script>
+</body>
+</html>
