@@ -78,7 +78,8 @@
     .gallery{
       display:grid;
       grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
-      gap:10px
+      gap:10px;
+      margin-top:20px;
     }
 
     .gallery img{
@@ -94,6 +95,22 @@
       border-left:4px solid #ffd0e0;
       background:linear-gradient(180deg,rgba(255,240,248,0.6),transparent);
       border-radius:8px;
+    }
+
+    .timer-card{
+      text-align:center;
+      font-family:'Playfair Display', serif;
+      margin-bottom:20px;
+    }
+    .timer-card h3{
+      margin:0 0 6px;
+      color:#ff2b55;
+      font-size:22px;
+    }
+    .timer-card .timer{
+      font-size:20px;
+      color:#ff6b9a;
+      font-weight:600;
     }
 
     footer{
@@ -203,6 +220,12 @@
     </div>
   </section>
 
+  <!-- ===== CRONÔMETRO ===== -->
+  <section class="card timer-card">
+    <h3>Nosso tempo juntos oficialmente</h3>
+    <div class="timer" id="tempoJuntos">Carregando...</div>
+  </section>
+
   <section class="card" id="galeria">
     <h3>Galeria</h3>
     <p class="lead">Algumas imagens fofas…</p>
@@ -249,7 +272,7 @@
   <div class="heart">❤</div>
 </div>
 
-<!-- ===== FIREBASE ===== -->
+<!-- ===== FIREBASE & CONTROLE DE MÚSICA & CRONÔMETRO ===== -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
   import {
@@ -329,6 +352,31 @@
       btn.textContent = '▶️';
     }
   });
+
+  // ===== CRONÔMETRO =====
+  const tempoEl = document.getElementById("tempoJuntos");
+  const startDate = new Date("2025-06-22T00:00:00"); // 22 de junho de 2025
+
+  function updateTempo(){
+    const now = new Date();
+    let diff = now - startDate; // diferença em ms
+
+    const dias = Math.floor(diff / (1000*60*60*24));
+    diff -= dias * (1000*60*60*24);
+
+    const horas = Math.floor(diff / (1000*60*60));
+    diff -= horas * (1000*60*60);
+
+    const minutos = Math.floor(diff / (1000*60));
+    diff -= minutos * (1000*60);
+
+    const segundos = Math.floor(diff / 1000);
+
+    tempoEl.textContent = `${dias} dias, ${horas}h ${minutos}m ${segundos}s`;
+  }
+
+  setInterval(updateTempo, 1000);
+  updateTempo();
 </script>
 
 </body>
