@@ -1,9 +1,81 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <body>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Para Guilherme ❤️</title>
 
-  <!-- ======== PROTEÇÃO POR SENHA ======== -->
+  <!-- ======== PROTEÇÃO POR SENHA (PARTE VISUAL E CSS) ======== -->
+  <style>
+    #senhaTela {
+      position: fixed;
+      inset: 0;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      z-index: 999999999;
+      font-family: Arial, sans-serif;
+    }
+    #senhaTela h2 {
+      font-size: 22px;
+      margin-bottom: 10px;
+    }
+    #senhaTela input {
+      padding: 10px;
+      font-size: 18px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      width: 200px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    #senhaTela button {
+      background: #ff6aa0;
+      color: white;
+      font-size: 16px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #senhaErro {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+
+  <!-- ======== RESTANTE DO STYLE DO SITE ======== -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1: #fff8fb;
+      --bg2: #fff0f6;
+      --accent: #ff6b9a;
+      --muted: #6b6b6b;
+      --card: rgba(255,255,255,0.8);
+    }
+    *{box-sizing:border-box}
+    body{font-family: 'Montserrat', sans-serif; margin:0; background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#222}
+    .container{max-width:960px;margin:32px auto;padding:20px}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    .logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#fff,#ffeaf0);display:flex;align-items:center;justify-content:center;font-size:34px}
+    h1{font-family:'Playfair Display', serif;margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    .card{background:var(--card);backdrop-filter: blur(6px);border-radius:14px;padding:18px;margin-bottom:18px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
+    .photo img{width:100%;height:100%;object-fit:contain}
+    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+    .msg { padding:10px;border-radius:8px;border:1px solid #fde8f1;margin-bottom:8px;background:white }
+    .msg .meta { font-size:13px;color:var(--muted) }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======== PROTEÇÃO POR SENHA (FUNCIONAL) ======== -->
   <div id="senhaTela">
     <h2>Digite a senha para acessar ❤️</h2>
     <input type="password" id="senhaInput" placeholder="Senha">
@@ -18,64 +90,23 @@
       const entrada = document.getElementById("senhaInput").value;
 
       if (entrada === senhaCorreta) {
+        localStorage.setItem("acessoLiberado", "sim");
         document.getElementById("senhaTela").style.display = "none";
       } else {
         document.getElementById("senhaErro").innerText = "Senha incorreta 💔";
       }
     }
+
+    // Impede burlar a senha recarregando a página
+    if (localStorage.getItem("acessoLiberado") === "sim") {
+      document.getElementById("senhaTela").style.display = "none";
+    }
   </script>
   <!-- ======== FIM DA PROTEÇÃO ======== -->
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Para Guilherme ❤️</title>
-  <meta name="description" content="Um site de amor com textos e imagens para o meu namorado Guilherme." />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg1: #fff8fb;
-      --bg2: #fff0f6;
-      --accent: #ff6b9a;
-      --muted: #6b6b6b;
-      --card: rgba(255,255,255,0.8);
-    }
-    *{box-sizing:border-box}
-    body{font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:linear-gradient(180deg,var(--bg1),var(--bg2)); color:#222}
-    .container{max-width:960px;margin:32px auto;padding:20px}
-    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
-    .logo{width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,#fff,#ffeaf0);display:flex;align-items:center;justify-content:center;font-size:34px}
-    h1{font-family:'Playfair Display', serif;margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
 
-    .card{background:var(--card);backdrop-filter: blur(6px);border-radius:14px;padding:18px;margin-bottom:18px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
-
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:center}
-    .hero .text h2{font-family:'Playfair Display';font-size:26px;margin:0 0 8px}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;background:linear-gradient(90deg,var(--accent),#ff88ac);color:#fff;text-decoration:none;font-weight:600}
-
-    .photo{width:100%;height:260px;border-radius:12px;overflow:hidden;background:#ffeef6;display:flex;align-items:center;justify-content:center}
-    .photo img{width:100%;height:100%;object-fit:contain;object-position:center}
-
-    .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
-
-    .letters{display:grid;grid-template-columns:1fr;gap:10px}
-
-    footer{color:var(--muted);text-align:center;margin-top:10px;font-size:13px}
-
-    .hearts{position:fixed;right:12px;bottom:12px;display:flex;flex-direction:column-reverse;gap:8px}
-    .heart{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#ff6b9a,#ff9cc1);display:flex;align-items:center;justify-content:center;color:white;font-size:20px;box-shadow:0 6px 14px rgba(255,107,154,0.2)}
-
-    @media (max-width:880px){.hero{grid-template-columns:1fr;}.photo{height:200px}}
-
-    blockquote{margin:0;padding:12px 16px;border-left:4px solid #ffd0e0;background:linear-gradient(180deg,rgba(255,240,248,0.6),transparent);border-radius:8px}
-
-    /* small message styling */
-    .msg { padding:10px;border-radius:8px;border:1px solid #fde8f1;margin-bottom:8px;background:white }
-    .msg .meta { font-size:13px;color:var(--muted) }
-    .msg strong { color:#222 }
-  </style>
-</head>
-<body>
+  <!-- ======== CONTEÚDO DO SITE (SECRETO) ======== -->
   <div class="container">
+
     <header>
       <div class="logo">❤</div>
       <div>
@@ -84,106 +115,48 @@
       </div>
     </header>
 
-    <section class="card hero" aria-label="Destaque romântico">
-      <div class="text">
-        <h2>Oi, meu amor — aqui é o nosso lugar</h2>
-        <p>Guarde suas memórias, veja as fotos que eu fiz pensando em você e leia as mensagens que eu escrevo quando sinto saudade.</p>
-        <p style="margin-top:12px"><a class="btn" href="#cartas">Ler cartas</a></p>
-      </div>
-      <div class="photo" aria-hidden="true">
-        <img src="https://raw.githubusercontent.com/hack3r029/Foto1/main/IMG-20251020-WA0280.jpg" alt="Foto para Guilherme" />
-      </div>
-    </section>
-
-    <section class="card" id="galeria">
-      <h3 style="margin-top:0">Galeria</h3>
-      <p class="lead">Imagens que me lembram você. Clique para ampliar.</p>
-      <div class="gallery" id="galleryGrid">
-        <img class="thumb" src="https://via.placeholder.com/400x300.png?text=Foto+1" alt="Foto 1" style="width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer" onclick="openModal(this.src,this.alt)">
-        <img class="thumb" src="https://via.placeholder.com/400x300.png?text=Foto+2" alt="Foto 2" style="width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer" onclick="openModal(this.src,this.alt)">
-        <img class="thumb" src="https://via.placeholder.com/400x300.png?text=Foto+3" alt="Foto 3" style="width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer" onclick="openModal(this.src,this.alt)">
-        <img class="thumb" src="https://via.placeholder.com/400x300.png?text=Foto+4" alt="Foto 4" style="width:100%;height:140px;object-fit:cover;border-radius:8px;cursor:pointer" onclick="openModal(this.src,this.alt)">
+    <section class="card">
+      <h2>Nosso espaço 💖</h2>
+      <p>Aqui ficam fotos, mensagens e tudo que guardo com carinho sobre nós.</p>
+      <div class="photo">
+        <img src="https://raw.githubusercontent.com/hack3r029/Foto1/main/IMG-20251020-WA0280.jpg">
       </div>
     </section>
 
     <section class="card" id="cartas">
-      <h3 style="margin-top:0">Cartas & Mensagens</h3>
-      <div class="letters">
-        <blockquote>
-          <strong>Minha promessa:</strong> Prometo ouvir suas histórias, rir das suas piadas ruins e segurar sua mão quando tudo parecer difícil.
-        </blockquote>
-        <blockquote>
-          <strong>Hoje:</strong> Senti saudade e escrevi isso: "Você é meu lugar favorito. Mesmo no silêncio, eu te encontro." — com todo meu carinho.
-        </blockquote>
-        <blockquote>
-          <strong>Pequeno lembrete:</strong> O amor é simples quando é verdadeiro. Obrigado por ser meu tudo.
-        </blockquote>
-      </div>
+      <h3>Cartas & Mensagens</h3>
+      <blockquote><strong>Minha promessa:</strong> Prometo te amar no detalhe, na calma, no silêncio e no caos.</blockquote>
+      <blockquote><strong>Hoje:</strong> Pensei em você. E isso já foi suficiente para meu dia ficar melhor.</blockquote>
     </section>
 
     <section class="card">
-      <h3 style="margin-top:0">Deixe uma mensagem (só pra gente)</h3>
-      <p class="lead">Escreva algo que eu possa ler depois, sem enviar pra ninguém. Funciona online — salvo pro meu site.</p>
-
+      <h3>Deixe uma mensagem pra mim 💌</h3>
       <form id="noteForm" onsubmit="saveNote(event)">
-        <input id="noteName" type="text" placeholder="Seu nome" style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2;margin-bottom:10px" required>
-        <textarea id="noteText" rows="4" style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2;resize:vertical" placeholder="Escreva algo doce..." required></textarea>
-        <div style="display:flex;gap:10px;margin-top:10px">
-          <button class="btn" type="submit">Salvar</button>
-          <button type="button" style="background:transparent;border:none;color:var(--muted);padding:8px;border-radius:8px;cursor:pointer" onclick="clearNotes()">Limpar notas (local)</button>
-        </div>
+        <input id="noteName" type="text" placeholder="Seu nome" required
+          style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2;margin-bottom:10px">
+
+        <textarea id="noteText" rows="4" placeholder="Escreva algo..." required
+          style="width:100%;padding:10px;border-radius:8px;border:1px solid #f0dbe2"></textarea>
+
+        <button class="btn" type="submit"
+          style="margin-top:10px;background:#ff6aa0;color:#fff;border:none;padding:10px 20px;border-radius:12px;cursor:pointer">
+          Salvar
+        </button>
       </form>
 
       <div id="notesArea" style="margin-top:12px"><em>Carregando mensagens...</em></div>
     </section>
 
-    <footer>
-      Feito com ❤️ para Guilherme. Substitua imagens pelos seus links do GitHub para publicar.
+    <footer style="text-align:center;margin-top:20px;color:#777;font-size:13px">
+      Feito com ❤️ para Guilherme.
     </footer>
   </div>
 
-  <!-- Modal de imagem simples -->
-  <div id="modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);align-items:center;justify-content:center;padding:20px">
-    <div style="max-width:900px;width:100%;background:white;border-radius:12px;overflow:hidden;">
-      <button onclick="closeModal()" style="float:right;border:none;background:transparent;font-size:20px;padding:10px;cursor:pointer">✕</button>
-      <img id="modalImg" src="" alt="" style="width:100%;height:60vh;object-fit:cover;display:block">
-      <div style="padding:12px" id="modalCaption"></div>
-    </div>
-  </div>
-
-  <div class="hearts" aria-hidden="true">
-    <div class="heart">❤</div>
-    <div class="heart">❤</div>
-    <div class="heart">❤</div>
-  </div>
-
-  <script>
-    // Modal
-    function openModal(src,alt){
-      document.getElementById('modalImg').src = src;
-      document.getElementById('modalCaption').textContent = alt || '';
-      document.getElementById('modal').style.display = 'flex';
-    }
-    function closeModal(){ document.getElementById('modal').style.display = 'none'; }
-
-    // local notes clear (only localStorage)
-    const NOTES_KEY = 'site_para_guilherme_notes_v1';
-    function clearNotes(){ if(confirm('Limpar notas locais?')){ localStorage.removeItem(NOTES_KEY); renderLocalNotes(); } }
-    function renderLocalNotes(){
-      const area = document.getElementById('notesArea');
-      const arr = JSON.parse(localStorage.getItem(NOTES_KEY) || '[]');
-      if(arr.length===0){ area.innerHTML = '<em>Nenhuma mensagem salva localmente.</em>'; return; }
-      area.innerHTML = arr.map(n => `<div class="msg"><div class="meta">${n.at}</div><div style="margin-top:6px">${escapeHtml(n.text)}</div></div>`).join('');
-    }
-    function escapeHtml(s){ return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;'); }
-  </script>
-
-  <!-- Firebase: módulo (já com seu firebaseConfig) -->
+  <!-- ======== FIREBASE MENSAGENS ONLINE ======== -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
     import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-    // <-- Colei o firebaseConfig que você me deu -->
     const firebaseConfig = {
       apiKey: "AIzaSyB1YSEkJdFC2woR-1O-h-C_-hMWrMhJzNU",
       authDomain: "mensagens-guilherme.firebaseapp.com",
@@ -197,7 +170,6 @@
     const db = getFirestore(app);
     const msgsCol = collection(db, "mensagens");
 
-    // envia uma mensagem pro Firestore
     async function saveNoteOnline(name, text){
       await addDoc(msgsCol, {
         nome: name,
@@ -207,36 +179,35 @@
       });
     }
 
-    // escuta em tempo real as mensagens, ordenadas da mais nova pra mais velha
     const q = query(msgsCol, orderBy("timestamp", "desc"));
     onSnapshot(q, (snapshot) => {
       const area = document.getElementById('notesArea');
-      if(snapshot.empty){ area.innerHTML = '<em>Nenhuma mensagem salva ainda.</em>'; return; }
+      if(snapshot.empty){
+        area.innerHTML = '<em>Nenhuma mensagem ainda.</em>';
+        return;
+      }
       let html = "";
       snapshot.forEach(doc => {
         const d = doc.data();
-        html += `<div class="msg"><div class="meta">${escapeHtml(d.data)} — <strong>${escapeHtml(d.nome)}</strong></div><div style="margin-top:6px">${escapeHtml(d.texto)}</div></div>`;
+        html += `
+          <div class="msg">
+            <div class="meta">${d.data} — <strong>${d.nome}</strong></div>
+            <div style="margin-top:6px">${d.texto}</div>
+          </div>
+        `;
       });
       area.innerHTML = html;
-    }, (err) => {
-      console.error("Erro ao carregar mensagens:", err);
-      document.getElementById('notesArea').innerHTML = '<em>Erro ao carregar mensagens. Veja console.</em>';
     });
 
-    // conexao com o formulário
     window.saveNote = async function(e){
       e.preventDefault();
       const name = document.getElementById('noteName').value.trim();
       const text = document.getElementById('noteText').value.trim();
-      if(!name || !text) return alert('Preencha tudo antes :)');
-      try{
-        await saveNoteOnline(name, text);
-        document.getElementById('noteText').value = '';
-      }catch(err){
-        console.error("Erro ao salvar:", err);
-        alert('Erro ao salvar a mensagem. Veja console.');
-      }
+      if(!name || !text) return alert("Preencha tudo 💗");
+      await saveNoteOnline(name, text);
+      document.getElementById('noteText').value = "";
     };
   </script>
+
 </body>
 </html>
